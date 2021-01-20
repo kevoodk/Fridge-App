@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FoodItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/fooditem', [FoodItemController::class, 'index'])->name('fooditem');
+Route::get('/fooditem/create', [FoodItemController::class, 'create'])->name('add-fooditem');
+Route::post('/fooditem/store', [FoodItemController::class, 'store']);
+Route::get('/fooditem/{id}', [FoodItemController::class, 'show']);
+Route::get('/fooditem/edit/{id}', [FoodItemController::class, 'edit']);
+Route::patch('/fooditem/destroy/{id}', [FoodItemController::class, 'destroy']);
