@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\FoodItem;
 use App\Models\FoodCategory;
+use Illuminate\Http\Request;
 
-class FoodItemController extends Controller
+class FoodCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,9 @@ class FoodItemController extends Controller
      */
     public function index()
     {
-        $foodItems = FoodItem::all();
-        $foods = [];
+        $foodCats = FoodCategory::all();
 
-        foreach($foodItems as $foodItem) {
-            $foodCat = $foodItem->cat->name;
-            $foods[] = ['cat' => $foodCat, 'fname' => $foodItem->fname, 'id' => $foodItem->id];
-        }
-
-        return view('fooditem.index', compact('foods'));
+        return view('foodcat.index', compact('foodCats'));
     }
 
     /**
@@ -33,9 +26,7 @@ class FoodItemController extends Controller
      */
     public function create()
     {
-        $foodCats = FoodCategory::all();
-
-        return view('fooditem.create', compact('foodCats'));
+        return view('foodcat.create');
     }
 
     /**
@@ -47,76 +38,76 @@ class FoodItemController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fname' => 'required',
-            'cat_id' => 'required',
+            'name' => 'required',
         ]);
 
-        FoodItem::create($request->all());
+        FoodCategory::create($request->all());
 
-        return redirect()->route('fooditem')
+        return redirect()->route('foodcat')
             ->with('success', 'created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $foodItem = FoodItem::find($id);
+        $foodCat = FoodCategory::find($id);
 
-        return view('fooditem.show', compact('foodItem'));
+        return view('foodcat.show', compact('foodCat'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $foodItem = FoodItem::find($id);
+        $foodCat = FoodCategory::find($id);
 
-        return view('fooditem.edit', compact('foodItem'));
+         return view('foodcat.edit', compact('foodCat'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            'fname' => 'required',
-        ]);
-        $foodItem = FoodItem::find($id);
-
-        $foodItem->update([
-            'fname' => $request->input('fname'),
+            'name' => 'required',
         ]);
 
-        return redirect()->route('fooditem')
+        $foodCat = FoodCategory::find($id);
+
+        $foodCat->update([
+            'name' => $request->input('name'),
+        ]);
+
+        return redirect()->route('foodcat')
             ->with('success', 'Item updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $foodItem =FoodItem::find($id);
-        $foodItem->delete();
+        $foodCat = FoodCategory::find($id);
+        $foodCat->delete();
 
-        return redirect()->route('fooditem')
+        return redirect()->route('foodcat')
             ->with('success', 'item deleted successfully');
     }
 }

@@ -17,7 +17,7 @@ class CreateFridgeFoodTable extends Migration
             $table->id();
             $table->dateTime('expire_date', $precision = 0);
             $table->unsignedBigInteger('fridge_id');
-            $table->foreign('fridge_id')->references('id')->on('frigdes');
+            $table->foreign('fridge_id')->references('id')->on('fridges');
             $table->unsignedBigInteger('food_id');
             $table->foreign('food_id')->references('id')->on('food_items');
             $table->timestamps();

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Item</h2>
+                <h2>Add New Category</h2>
             </div>
 
         </div>
@@ -20,21 +20,14 @@
             </ul>
         </div>
     @endif
-    <form action="/fooditem/store" method="POST" >
+    <form action="/foodcat/store" method="POST" >
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
-                    <input type="text" name="fname" class="form-control" placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <select name="cat_id">
-                        @foreach($foodCats as $foodCat)
-                        <option value="{{$foodCat->id}}">{{$foodCat->name}}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" name="name" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
