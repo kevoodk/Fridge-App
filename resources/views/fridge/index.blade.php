@@ -10,10 +10,13 @@
     @endif
 
 <h1>Welcome to your fridge</h1>
-    @if(empty($fridge))
     <p>You have not create a fridge yet.</p>
-    @else
-    <p>{{$fridge->name}}</p>
-    @endif
+        <a href="{{url('fridge/create')}}" class="btn btn-primary">Create one here</a>
+        @foreach($fridge as $myFridge)
+            <p>{{$myFridge->name}}</p>
+        @endforeach
+        <p>Your fridge looks empty.</p>
+        <a href="#" class="btn btn-primary">Start filling it now</a>
+
 </div>
 @endsection

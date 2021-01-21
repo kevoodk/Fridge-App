@@ -20,15 +20,23 @@
             </ul>
         </div>
     @endif
-    <form action="/fridge/store" method="POST" >
+    <form action="/myfridge/store" method="POST" >
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Give your fridge a name">
+                    <select name="food_id">
+                        @foreach($foodItems as $food)
+                        <option value="{{$food->id}}">{{$food->fname}}</option>
+                        @endforeach
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label>Enter expire date</label>
+                    <input type="date" name="exp_date" value="now" />
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
