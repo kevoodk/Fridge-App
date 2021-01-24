@@ -83,9 +83,7 @@ class FridgeFoodController extends Controller
      */
     public function edit($id)
     {
-        $fridgeFood = FridgeFood::find(4)->with('getFood')->get();
-        dd($fridgeFood);
-        return view('myfridge.edit', compact('fridgeFood'));
+
     }
 
     /**
@@ -97,18 +95,7 @@ class FridgeFoodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'expire_date' => 'required',
-        ]);
 
-        $foodItem = FridgeFood::find($id);
-
-        $foodItem->update([
-            'expire_date' => $request->input('expire_date'),
-        ]);
-
-        return redirect()->route('myfridge')
-            ->with('success', 'Item updated successfully');
     }
 
     /**
