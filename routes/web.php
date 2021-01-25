@@ -49,7 +49,7 @@ Route::get('/fridge/create', [FridgeController::class, 'create'])->name('add-fri
 Route::post('/fridge/store', [FridgeController::class, 'store']);
 
 Route::get('/myfridge', [FridgeFoodController::class, 'index'])->name('myfridge');
-Route::get('/myfridge/{id}', [FridgeFoodController::class, 'show']);
-Route::get('/myfridge/create', [FridgeFoodController::class, 'create']);
+Route::get('/myfridge/create', [FridgeFoodController::class, 'create'])->name('myfridge-add');
 Route::post('/myfridge/store', [FridgeFoodController::class, 'store']);
+Route::get('/myfridge/{id}', [FridgeFoodController::class, 'show']);
 Route::patch('/myfridge/destroy/{id}', [FridgeFoodController::class, 'destroy']);

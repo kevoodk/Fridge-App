@@ -16,8 +16,7 @@
                 <tr>
                     <th>ID:</th>
                     <th>Name:</th>
-                    <th>Show</th>
-                    <th>Edit</th>
+                    <th>Expire date:</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -30,14 +29,7 @@
                 <tr>
                     <td>{{$foodItem['id']}}</td>
                     <td>{{$foodItem['getFood'][0]->fname}}</td>
-                    <td><a href="{{ url('/myfridge', $foodItem['id']) }}">
-                        Show
-                        </a>
-                    </td>
-                    <td><a href="{{ url('/myfridge/edit', $foodItem['id']) }}">
-                        Edit
-                        </a>
-                    </td>
+                    <td>{{$foodItem['expire_date']}}</td>
                     <td>
                         <form action="{{ url('/myfridge/destroy', $foodItem['id']) }}" method="POST">
                         @csrf

@@ -31,12 +31,12 @@
         <a class="navbar-brand" href="#">Food admin panel</a>
         <ul class="nb-nav">
             <li>
-                <a class="collapsed" data-toggle="collapse" href="#excercise" aria-expanded="false" aria-controls="excercise">
+                <a class="collapsed" data-toggle="collapse" href="#foodItem" aria-expanded="false" aria-controls="foodItem">
                     <span class="fa fa-child nb-link-icon"></span>
-                    <span class="nb-link-text">Manage Excercises</span>
+                    <span class="nb-link-text">Manage Food items</span>
                     <span class="fa fa-angle-up nb-btn-sub-collapse"></span>
                 </a>
-                <ul class="nb-sub-one collapse" id="excercise">
+                <ul class="nb-sub-one collapse" id="foodItem">
                     <li>
                       <a href="{{route('fooditem')}}">
                         <span class="fa fa-slack nb-link-icon"></span>
@@ -51,7 +51,48 @@
                     </li>
                 </ul>
             </li>
-
+            <li>
+                <a class="collapsed" data-toggle="collapse" href="#foodCat" aria-expanded="false" aria-controls="foodCat">
+                    <span class="fa fa-child nb-link-icon"></span>
+                    <span class="nb-link-text">Manage Food categories</span>
+                    <span class="fa fa-angle-up nb-btn-sub-collapse"></span>
+                </a>
+                <ul class="nb-sub-one collapse" id="foodCat">
+                    <li>
+                      <a href="{{route('foodcat')}}">
+                        <span class="fa fa-slack nb-link-icon"></span>
+                        <span class="nb-link-text">All food categories</span>
+                      </a>
+                    </li>
+                     <li>
+                      <a href="{{route('add-foodcat')}}">
+                        <span class="fa fa-slack nb-link-icon"></span>
+                        <span class="nb-link-text">Add Food category</span>
+                      </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="collapsed" data-toggle="collapse" href="#myFridge" aria-expanded="false" aria-controls="myFridge">
+                    <span class="fa fa-child nb-link-icon"></span>
+                    <span class="nb-link-text">Manage Your Fridge</span>
+                    <span class="fa fa-angle-up nb-btn-sub-collapse"></span>
+                </a>
+                <ul class="nb-sub-one collapse" id="myFridge">
+                    <li>
+                      <a href="{{route('myfridge')}}">
+                        <span class="fa fa-slack nb-link-icon"></span>
+                        <span class="nb-link-text">Your fridge</span>
+                      </a>
+                    </li>
+                     <li>
+                      <a href="{{route('myfridge-add')}}">
+                        <span class="fa fa-slack nb-link-icon"></span>
+                        <span class="nb-link-text">Add Food to fridge</span>
+                      </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div> <!-- /.dash-navbar-left -->
 
