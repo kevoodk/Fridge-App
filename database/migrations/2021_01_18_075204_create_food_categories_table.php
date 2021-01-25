@@ -15,6 +15,7 @@ class CreateFoodCategoriesTable extends Migration
     {
         Schema::create('food_categories', function (Blueprint $table) {
             $table->id();
+            $table->integer('food_group_id')->unique();
             $table->string('name');
             $table->timestamps();
         });

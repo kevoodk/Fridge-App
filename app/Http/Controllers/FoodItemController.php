@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\FoodImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\FoodItem;
 use App\Models\FoodCategory;
@@ -118,5 +120,11 @@ class FoodItemController extends Controller
 
         return redirect()->route('fooditem')
             ->with('success', 'item deleted successfully');
+    }
+
+    public function import() {
+        Excel::import(new FoodImport, storage_path('app/public/foods.xlsx'));
+
+        return redirect('/')->with('success', 'All good!');
     }
 }

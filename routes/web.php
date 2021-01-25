@@ -53,3 +53,5 @@ Route::get('/myfridge/create', [FridgeFoodController::class, 'create'])->name('m
 Route::post('/myfridge/store', [FridgeFoodController::class, 'store']);
 Route::get('/myfridge/{id}', [FridgeFoodController::class, 'show']);
 Route::patch('/myfridge/destroy/{id}', [FridgeFoodController::class, 'destroy']);
+
+Route::get('/helloworld', [FoodItemController::class, 'import']);

@@ -16,8 +16,7 @@ class CreateFoodItemsTable extends Migration
         Schema::create('food_items', function (Blueprint $table) {
             $table->id();
             $table->string('fname');
-            $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')->references('id')->on('food_categories');
+            $table->foreignId('food_group_id')->constrained('food_categories');
             $table->timestamps();
         });
     }
