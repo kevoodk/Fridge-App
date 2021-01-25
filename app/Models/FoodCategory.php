@@ -10,6 +10,6 @@ class FoodCategory extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'food_group_id', 'name',
     ];
 }
